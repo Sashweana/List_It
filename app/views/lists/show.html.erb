@@ -12,7 +12,7 @@
 
 <p>
   <strong>Cover image:</strong>
-  <%= @list.cover_image %>
+  <%= image_tag(@list.cover_image_url, width: 600) if @list.cover_image.present? %>
 </p>
 
 <%= link_to 'Edit', edit_list_path(@list) %> |
