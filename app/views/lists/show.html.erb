@@ -1,19 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @list.title %>
-</p>
+<div class="row">
+  <div class="col-md-9">
+    <%= image_tag(@list.cover_image_url, width: '100%') if @list.cover_image.present? %>
+  </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @list.description %>
-</p>
-
-<p>
-  <strong>Cover image:</strong>
-  <%= image_tag(@list.cover_image_url, width: 600) if @list.cover_image.present? %>
-</p>
-
-<%= link_to 'Edit', edit_list_path(@list) %> |
-<%= link_to 'Back', lists_path %>
+  <div class="col-md-3">
+    <p><b>Name: </b><%= @list.title %></p>
+    <p><b>Description: </b><%= @list.description %></p>
+    <p>
+      <%= link_to 'Edit', edit_list_path(@list) %> |
+      <%= link_to 'Destroy', @list, data: { confirm: 'Are you sure?' }, method: :delete %> |
+      <%= link_to 'Back', lists_path %>
+    </p>
+  </div>
+</div>
